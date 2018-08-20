@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="end-page">
+
+    <div class="container end-data" style="width: 300px">
+        <h6>Stanowisko: {{current_end.end_number}} / 14</h6>
+        <h6>Paliki: {% for distance in current_end.distance %} {{distance}}; {% endfor %}</h6>
+        <h6>Ilość strzał z palika: {{current_end.arrows_number}}</h6>
+        <p>(suma punktów do tej pory: {{result}})</p>
+    </div>
+
+    <form action="/sciezka" method="post">
+
+        <div>
+            <input type="hidden" name="current_end_number" value="{{ current_end_number }}">
+        </div>
+
+        <div class="my-2 ml-3 centered">
+            {% for points in sciezka_points %}
+            <div class="form-check form-check-inline">
+                <span class="border bg-warning rounded my-1 p-1">
+                    <input class="form-check-input mr-0" type="radio"
+                           name="points_for_end" value="{{points}}" id="{{points}}" checked>
+                    <label class="form-check-label" for="{{points}}">{{points}}</label>
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="centered">
+            <input type="submit" class="btn btn-primary" name="submit" value="następna seria >"/>
+        </div>
+
+    </form>
+
+    <div class="menu-button">
+        <a class="btn btn-outline-primary btn-sm" href="{{ url_for('home') }}" role="button">
+            Wróć do strony głównej
+        </a>
+    </div>
+
+</div>
+{% endblock %}

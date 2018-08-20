@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container game-form" style="width: 300px">
+
+    <h3>Wybierz parametry:</h3>
+    <form method="post" action="{{url_for('sciezka_page')}}">
+        <ul>
+            <li>Ilość / rodzaj palików na stanowisku:
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="marker" value="bliski" id="bliski">
+                  <label class="form-check-label" for="bliski">Bliski</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="marker" value="środkowy" id="środkowy">
+                  <label class="form-check-label" for="środkowy">Środkowy</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="marker" value="daleki" id="daleki">
+                  <label class="form-check-label" for="daleki">Daleki</label>
+                </div>
+            </li>
+
+            <br>
+            <li>Ilość strzał z każdego palika:
+                <div class="form-check">
+                  <input class="form-check-input" name="arrows-number" type="radio" id="1arrow" value="1" checked>
+                  <label class="form-check-label" for="1arrow">1</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" name="arrows-number" type="radio" id="2arrows" value="2">
+                  <label class="form-check-label" for="2arrows">2</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" name="arrows-number" type="radio" id="3arrows" value="3">
+                  <label class="form-check-label" for="3arrows">3</label>
+                </div>
+            </li>
+
+            <br>
+            <li>Punktacja:
+                <div class="form=check">
+                  <input class="form-check-input" name="max-scoring-per-arrow" type="radio" id="1-0" value="1" checked>
+                    <label class="form-check-label" for="1-0"> 1 (kostka) - 0 (pudło) </label>
+                </div>
+                <div class="form=check">
+                  <input class="form-check-input" name="max-scoring-per-arrow" type="radio" id="2-1-0" value="2">
+                  <label class="form-check-label" for="2-1-0">2 (środek) - 1 (kostka) - 0 (pudło) </label>
+                </div>
+            </li>
+        </ul>
+
+        <div class="menu-button">
+            <input type="submit" class="btn btn-primary" name="submit" value="ZATWIERDŹ"/>
+        </div>
+    </form>
+</div>
+{% endblock %}

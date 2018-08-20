@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container menu">
+    <h2>Wybierz tryb strzelania:</h2>
+    <br>
+    <div class="menu-button">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('liga_page') }}" role="button">
+            Liga 15/20/25m
+        </a>
+    </div>
+    <div class="menu-button">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('sciezka_menu') }}" role="button">
+            Ścieżka łucznicza
+        </a>
+    </div>
+</div>
+
+{% endblock %}
